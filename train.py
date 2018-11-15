@@ -60,6 +60,7 @@ FLAGS = tf.app.flags.FLAGS
 def preprocess_train():
     x_text, y, lengths = data_helper.load_data_and_labels('train/pos.txt', 'train/neg.txt')
     max_document_length = max([len(x.split(" ")) for x in x_text])
+    max_document_length = 300
     vocab_processor = learn.preprocessing.VocabularyProcessor(max_document_length)
     x = np.array(list(vocab_processor.fit_transform(x_text)))
 
@@ -83,7 +84,7 @@ def preprocess_dev(vocab_processor_train):
     max_length = max(map(len, [sent for sent in x]))
 
     for i in range(len(x)):
-        x[i] = np.pad(x[i], (0, max_length - len(x[i])), 'constant', constant_values=(0,0))
+        x[i] = np.pad(x[i], (0, max_length - len(x[i])), 'constant', constant_values=(0,0))[0:300]
 
     return x, y, lengths
 
@@ -105,7 +106,7 @@ def preprocess_test(vocab_processor_train):
     max_length = max(map(len, [sent for sent in x]))
 
     for i in range(len(x)):
-        x[i] = np.pad(x[i], (0, max_length - len(x[i])), 'constant', constant_values=(0,0))
+        x[i] = np.pad(x[i], (0, max_length - len(x[i])), 'constant', constant_values=(0,0))[0:300]
 
     return x, y, lengths
 

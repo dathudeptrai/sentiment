@@ -20,7 +20,7 @@ def clean_str(string):
 	# string = re.sub(r"\s{2,}", " ", string)
 
 	#string = " ".join([word for word in string.split() if word not in set(stopwords.words('english'))])
-	return string.strip().lower()
+	return string.lower()
 
 def load_data_and_labels(positive_data_file, negative_data_file):
 	positive_examples = list(open(positive_data_file, "r", encoding='utf-8').readlines())
