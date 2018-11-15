@@ -39,7 +39,7 @@ tf.flags.DEFINE_integer('vocab_size', 0, 'Vocabulary size')
 tf.flags.DEFINE_float('test_size', 0.2, 'Cross validation test size')
 
 # Model hyperparameters
-tf.flags.DEFINE_integer('embedding_size', 300, 'Word embedding size.')
+tf.flags.DEFINE_integer('embedding_size', 100, 'Word embedding size.')
 tf.flags.DEFINE_integer('hidden_size', 128, 'Number of hidden units in the LSTM cell')
 tf.flags.DEFINE_integer('num_layers', 2, 'Number of the LSTM cells.')
 tf.flags.DEFINE_float('keep_prob', 0.5, 'Dropout keep probability')  # All
@@ -47,7 +47,7 @@ tf.flags.DEFINE_float('learning_rate', 1e-3, 'Learning rate')  # All
 tf.flags.DEFINE_float('l2_reg_lambda', 0.0001, 'L2 regularization lambda')  # All
 
 # Training parameters
-tf.flags.DEFINE_integer('batch_size', 100, 'Batch size')
+tf.flags.DEFINE_integer('batch_size', 20, 'Batch size')
 tf.flags.DEFINE_integer('num_epochs', 100, 'Number of epochs')
 tf.flags.DEFINE_float('decay_rate', 0.95, 'Learning rate decay rate. Range: (0, 1]')  # Learning rate decay
 tf.flags.DEFINE_integer('decay_steps', 100000, 'Learning rate decay steps')  # Learning rate decay
