@@ -60,7 +60,7 @@ FLAGS = tf.app.flags.FLAGS
 def preprocess_train():
     x_text, y, lengths = data_helper.load_data_and_labels('train/pos.txt', 'train/neg.txt')
     max_document_length = max([len(x.split(" ")) for x in x_text])
-    max_document_length = 300
+    #max_document_length = 300
     vocab_processor = learn.preprocessing.VocabularyProcessor(max_document_length)
     x = np.array(list(vocab_processor.fit_transform(x_text)))
 
@@ -196,9 +196,9 @@ def train(x_train, y_train, vocab_processor, x_dev, y_dev, lengths_train, length
 
 def main(argv=None):
     x_train, y_train, vocab_processor_train, lengths_train = preprocess_train()
-    x_dev, y_dev, lengths_dev = preprocess_dev(vocab_processor_train)
-    x_test, y_test, lengths_test = preprocess_test(vocab_processor_train)
-    train(x_train, y_train, vocab_processor_train, x_dev, y_dev, lengths_train, lengths_dev, lengths_test, x_test, y_test)
+    #x_dev, y_dev, lengths_dev = preprocess_dev(vocab_processor_train)
+    #x_test, y_test, lengths_test = preprocess_test(vocab_processor_train)
+    #train(x_train, y_train, vocab_processor_train, x_dev, y_dev, lengths_train, lengths_dev, lengths_test, x_test, y_test)
 
 if __name__ == "__main__":
     tf.app.run()
